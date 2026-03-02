@@ -1,16 +1,43 @@
-# React + Vite
+# ☕ Key-Puccino
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A role-based authentication demo that simulates a café workflow using React, React Router, Docker, and Keycloak.
 
-Currently, two official plugins are available:
+This project demonstrates real-world authentication architecture, route protection, and role-based access control (RBAC) in a modern frontend application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Project Concept
 
-## React Compiler
+## Key-Puccino models three distinct user roles within a single application:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+`Guest` → Create and submit an order
 
-## Expanding the ESLint configuration
+`Barista` → Complete a mini game to prepare the order
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+`Manager` → View scores and leaderboard data
+
+Each role has restricted access to specific routes and UI states based on Keycloak-issued tokens.
+
+# Authentication & Authorization
+
+- Identity provider: Keycloak
+
+- Realm: key-puccino
+
+- Roles: guest, barista, manager
+
+- Client configured for SPA with role mappings
+
+- Protected routes
+
+Authentication state is derived from Keycloak, and access is conditionally rendered based on permissions.
+
+# Architecture Overview
+
+- React frontend
+
+- React Router for protected navigation
+
+- Keycloak for identity management
+
+- Docker for containerized auth environment
+
+- Enforces UI-level and route-level authorization
