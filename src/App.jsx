@@ -9,17 +9,18 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/menu" element={
-          <ProtectedRoute role="guest">
+          // use <ProtectedRoute> to wrap each role page
+          <ProtectedRoute role="Guest">
             <GuestMenu />
           </ProtectedRoute>
         } />
         <Route path="/barista" element={
-          <ProtectedRoute role="barista">
+          <ProtectedRoute role="Barista">
             <BaristaQueue />
           </ProtectedRoute>
         } />
         <Route path="/manager" element={
-          <ProtectedRoute role="manager">
+          <ProtectedRoute role="Manager">
             <ManagerBoard />
           </ProtectedRoute>
         } />
