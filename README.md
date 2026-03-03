@@ -46,7 +46,7 @@ Authentication state is derived from Keycloak, and access is conditionally rende
 
 1. Start Keycloak with your export file:
 ```
-bashdocker run -p 8080:8080 \
+docker run -p 8080:8080 \
   -e KEYCLOAK_ADMIN=admin \
   -e KEYCLOAK_ADMIN_PASSWORD=admin \
   -v /path/to/your/keycloak-export.json:/opt/keycloak/data/import/realm.json \
@@ -56,7 +56,7 @@ Replace /path/to/your/keycloak-export.json with the actual path to your file.
 
 2. Start your React app:
 ```
-bashcd coffee-shop
+cd coffee-shop
 npm run dev
 ```
 Then go to http://localhost:5173
