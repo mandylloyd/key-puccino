@@ -1,4 +1,5 @@
 export default function GuestMenu({ getOrder, guestOrder, submitOrder }) {
+
 const menu = [
     {
         id: 1, name: 'Espresso', difficulty: 'easy',
@@ -100,7 +101,7 @@ const menu = [
             <h3>Your order is: </h3>
             <p>{guestOrder.name}</p>
 
-            <button onClick={() => guestOrder.name != 'default' ? submitOrder() : handleValidation()}>Place order</button>
+            <button onClick={() => guestOrder.name != 'default' ? submitOrder(guestOrder) : handleValidation()}>Place order</button>
         </div>
     </div>
 }

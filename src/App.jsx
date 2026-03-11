@@ -9,36 +9,45 @@ import ManagerBoard from './pages/ManagerBoard';
 export default function App() {
   const [guestOrder, setGuestOrder] = useState({ id: 11, name: 'Select a drink to order', ingredients: ['none'] });
   const [orderSent, setOrderSent] = useState(false);
+  const [completedOrder, setCompletedOrder] = useState(null);
+
+function handleOrderComplete(orderResult) {
+    setCompletedOrder(orderResult);
+}
 
   function getOrder(order) {
     setGuestOrder(order);
   }
 
-  function submitOrder() {
+function submitOrder(order) {
     setOrderSent(true);
-  }
+    getOrder(order);
+    localStorage.setItem('guestOrder', JSON.stringify(order));
+}
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/menu" element={
-          // use <ProtectedRoute> to wrap each role page
+          // Use <ProtectedRoute> to wrap each role page
           <ProtectedRoute role="Guest">
             { orderSent ?
-              <Logout guestOrder={guestOrder}/>
+              <Logout 
+                  message={`Your ${guestOrder.name} order has been placed. Thank you!`}
+                  redirectPath="/barista" 
+              />
               :
-              <GuestMenu getOrder={getOrder} guestOrder={guestOrder} submitOrder={submitOrder} />
+              <GuestMenu guestOrder={guestOrder} getOrder={getOrder} submitOrder={submitOrder} />
             }
           </ProtectedRoute>}
         />
         <Route path="/barista" element={
           <ProtectedRoute role="Barista">
-            <BaristaQueue />
-          </ProtectedRoute>
+            <BaristaQueue guestOrder={guestOrder} onOrderComplete={handleOrderComplete} />          </ProtectedRoute>
         } />
         <Route path="/manager" element={
           <ProtectedRoute role="Manager">
-            <ManagerBoard />
+              <ManagerBoard completedOrder={completedOrder} />
           </ProtectedRoute>
         } />
       </Routes>
