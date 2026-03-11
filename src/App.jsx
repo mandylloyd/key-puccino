@@ -13,6 +13,7 @@ export default function App() {
 
 function handleOrderComplete(orderResult) {
     setCompletedOrder(orderResult);
+    localStorage.setItem('completedOrder', JSON.stringify(orderResult));
 }
 
   function getOrder(order) {
