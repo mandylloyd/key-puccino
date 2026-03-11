@@ -1,16 +1,85 @@
 export default function GuestMenu({ getOrder, guestOrder, submitOrder }) {
-    const menu = [
-        { id: 1, name: 'Espresso', ingredients: ['espresso shot'] },
-        { id: 2, name: 'Americano', ingredients: ['espresso shot', 'hot water'] },
-        { id: 3, name: 'Latte', ingredients: ['espresso shot', 'steamed milk', 'milk foam'] },
-        { id: 4, name: 'Cappuccino', ingredients: ['espresso shot', 'steamed milk', 'thick foam'] },
-        { id: 5, name: 'Mocha', ingredients: ['espresso shot', 'chocolate syrup', 'steamed milk', 'whipped cream'] },
-        { id: 6, name: 'Flat White', ingredients: ['espresso shot', 'steamed milk'] },
-        { id: 7, name: 'Macchiato', ingredients: ['espresso shot', 'milk foam', 'caramel drizzle'] },
-        { id: 8, name: 'Vanilla Latte', ingredients: ['espresso shot', 'vanilla syrup', 'steamed milk', 'milk foam'] },
-        { id: 9, name: 'Iced Coffee', ingredients: ['espresso shot', 'cold water', 'ice', 'milk'] },
-        { id: 10, name: 'Chai Latte', ingredients: ['chai concentrate', 'steamed milk', 'cinnamon'] },
-    ]
+const menu = [
+    {
+        id: 1, name: 'Espresso', difficulty: 'easy',
+        ingredients: [
+        { name: 'espresso shot', target: 100 }
+        ]
+    },
+    {
+        id: 2, name: 'Americano', difficulty: 'easy',
+        ingredients: [
+        { name: 'espresso shot', target: 33 },
+        { name: 'hot water', target: 67 }
+        ]
+    },
+    {
+        id: 3, name: 'Flat White', difficulty: 'easy',
+        ingredients: [
+        { name: 'espresso shot', target: 25 },
+        { name: 'steamed milk', target: 75 }
+        ]
+    },
+    {
+        id: 4, name: 'Cappuccino', difficulty: 'medium',
+        ingredients: [
+        { name: 'espresso shot', target: 33 },
+        { name: 'steamed milk', target: 33 },
+        { name: 'thick foam', target: 34 }
+        ]
+    },
+    {
+        id: 5, name: 'Latte', difficulty: 'medium',
+        ingredients: [
+        { name: 'espresso shot', target: 20 },
+        { name: 'steamed milk', target: 72 },
+        { name: 'milk foam', target: 8 }
+        ]
+    },
+    {
+        id: 6, name: 'Macchiato', difficulty: 'medium',
+        ingredients: [
+        { name: 'espresso shot', target: 67 },
+        { name: 'milk foam', target: 25 },
+        { name: 'caramel drizzle', target: 8 }
+        ]
+    },
+    {
+        id: 7, name: 'Mocha', difficulty: 'hard',
+        ingredients: [
+        { name: 'espresso shot', target: 20 },
+        { name: 'chocolate syrup', target: 15 },
+        { name: 'steamed milk', target: 55 },
+        { name: 'whipped cream', target: 10 }
+        ]
+    },
+    {
+        id: 8, name: 'Vanilla Latte', difficulty: 'hard',
+        ingredients: [
+        { name: 'espresso shot', target: 20 },
+        { name: 'vanilla syrup', target: 10 },
+        { name: 'steamed milk', target: 62 },
+        { name: 'milk foam', target: 8 }
+        ]
+    },
+    {
+        id: 9, name: 'Chai Latte', difficulty: 'hard',
+        ingredients: [
+        { name: 'chai concentrate', target: 40 },
+        { name: 'steamed milk', target: 55 },
+        { name: 'cinnamon', target: 5 }
+        ]
+    },
+    {
+        id: 10, name: 'Iced Coffee', difficulty: 'hard',
+        ingredients: [
+        { name: 'espresso shot', target: 20 },
+        { name: 'cold water', target: 30 },
+        { name: 'ice', target: 35 },
+        { name: 'milk', target: 15 }
+        ]
+    },
+]
 
     function handleValidation() {
         // Error handling will go here
