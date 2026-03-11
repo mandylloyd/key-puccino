@@ -6,6 +6,8 @@ import Logout from './pages/Logout';
 import BaristaQueue from './pages/BaristaQueue';
 import ManagerBoard from './pages/ManagerBoard';
 
+// TODO: put Logout in GuestMenu instead of rendering it as a separate page
+
 export default function App() {
   const [guestOrder, setGuestOrder] = useState({ id: 11, name: 'Select a drink to order', ingredients: ['none'] });
   const [orderSent, setOrderSent] = useState(false);

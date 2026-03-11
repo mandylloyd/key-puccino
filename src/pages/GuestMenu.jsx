@@ -1,5 +1,6 @@
 export default function GuestMenu({ getOrder, guestOrder, submitOrder }) {
 
+// TODO: display difficulty level on each drink button
 const menu = [
     {
         id: 1, name: 'Espresso', difficulty: 'easy',
