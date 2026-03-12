@@ -32,7 +32,7 @@ function submitOrder(order) {
     <BrowserRouter>
       <Routes>
         <Route path="/menu" element={
-          // Use <ProtectedRoute> to wrap each role page
+          // <ProtectedRoute> wraps each role page and checks keycloak for valid session before render
           <ProtectedRoute role="Guest">
             { orderSent ?
               <Logout 
